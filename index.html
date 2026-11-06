@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketly | Everyday finds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="store.css">
+</head>
+<body>
+    <div id="authScreen" class="auth-screen">
+        <div class="auth-art">
+            <div class="brand-mark">M<span>.</span></div>
+            <p class="eyebrow">CURATED FOR YOUR EVERYDAY</p>
+            <h1>Good things,<br><em>delivered.</em></h1>
+            <p class="auth-intro">Discover considered products for the way you live, work, and unwind.</p>
+            <div class="floating-product">✦ <span>1,200+ thoughtful finds</span></div>
+        </div>
+        <div class="auth-panel">
+            <div class="mobile-brand">Marketly<span>.</span></div>
+            <div class="auth-heading">
+                <p class="eyebrow">WELCOME TO MARKETLY</p>
+                <h2 id="authTitle">Sign in to continue</h2>
+                <p id="authSubtitle">Your next favorite thing is waiting.</p>
+            </div>
+            <form id="authForm">
+                <label id="nameField" class="hidden">Full name<input id="nameInput" type="text" placeholder="Alex Morgan" autocomplete="name"></label>
+                <label id="countryField">Country<select id="countryInput" autocomplete="country-name"><option value="">Choose your country</option><option value="EG">Egypt</option><option value="SA">Saudi Arabia</option><option value="AE">United Arab Emirates</option><option value="US">United States</option><option value="GB">United Kingdom</option><option value="FR">France</option><option value="DE">Germany</option><option value="CA">Canada</option><option value="AU">Australia</option><option value="IN">India</option><option value="JP">Japan</option><option value="CN">China</option><option value="CH">Switzerland</option><option value="ZA">South Africa</option><option value="NG">Nigeria</option><option value="MA">Morocco</option><option value="KW">Kuwait</option><option value="QA">Qatar</option><option value="BH">Bahrain</option><option value="OM">Oman</option><option value="JO">Jordan</option><option value="TR">Türkiye</option><option value="BR">Brazil</option><option value="MX">Mexico</option><option value="SG">Singapore</option><option value="NZ">New Zealand</option><option value="KR">South Korea</option><option value="PK">Pakistan</option><option value="ID">Indonesia</option><option value="MY">Malaysia</option><option value="TH">Thailand</option><option value="PH">Philippines</option><option value="SE">Sweden</option><option value="NO">Norway</option><option value="DK">Denmark</option><option value="PL">Poland</option><option value="CZ">Czechia</option><option value="HU">Hungary</option><option value="IL">Israel</option><option value="KE">Kenya</option></select></label>
+                <label>Email address<input id="emailInput" type="email" placeholder="you@example.com" autocomplete="email" required></label>
+                <label>Password<input id="passwordInput" type="password" placeholder="At least 6 characters" autocomplete="current-password" minlength="6" required></label>
+                <button class="primary-button" type="submit" id="authSubmit">Sign in <span>→</span></button>
+                <p id="authMessage" class="form-message" role="status"></p>
+            </form>
+            <div class="auth-divider"><span>or</span></div><button id="googleSignIn" class="google-button" type="button"><b>G</b> Continue with Google</button>
+            <p class="auth-switch"><span id="switchPrompt">New to Marketly?</span> <button id="switchAuth" type="button">Create an account</button></p>
+        </div>
+    </div>
+
+    <main id="shopApp" class="shop-app hidden">
+        <nav class="app-nav"><button id="dashboardTab" class="active" type="button">Dashboard</button><button id="shopTab" type="button">Shop</button><span id="accountName"></span><button id="logoutButton" class="logout-button" type="button">Log out</button><button id="staffLogout" class="hidden" type="button">Log out</button></nav>
+        <section id="dashboardView" class="dashboard-view hidden"><div class="dashboard-heading"><p class="eyebrow">YOUR MARKETLY</p><h1>Welcome, <span id="dashboardName">there</span>.</h1><p>Your account is ready. Explore the store or update your profile details.</p></div><div class="dashboard-cards"><article><span class="dashboard-icon">✦</span><p>Account</p><strong id="dashboardEmail">—</strong></article><article><span class="dashboard-icon">◎</span><p>Country</p><strong id="dashboardCountry">—</strong></article><article><span class="dashboard-icon">▣</span><p>Cart items</p><strong id="dashboardCartCount">0</strong></article></div><button id="browseShopButton" class="primary-button dashboard-cta" type="button">Browse the shop <span>→</span></button><section class="order-history"><div class="history-heading"><div><p class="eyebrow">YOUR PURCHASES</p><h2>Order follow-up</h2></div><div class="history-actions"><span id="orderHistoryCount">0 active orders</span><button id="completedOrdersButton" class="small-action secondary" type="button">Past orders <b id="completedOrderCount">0</b></button></div></div><div id="orderHistoryList" class="order-history-list"><p class="history-empty">Your orders will appear here.</p></div></section></section>
+        <section id="staffView" class="dashboard-view hidden"><div class="dashboard-heading"><p class="eyebrow" id="staffRoleLabel">MARKETLY OPERATIONS</p><h1 id="staffTitle">Orders</h1><p id="staffDescription">Manage order preparation and delivery.</p></div><section class="order-history"><div class="history-heading"><h2>Active orders</h2><span id="staffOrderCount">0 orders</span></div><div id="staffOrderList" class="order-history-list"><p class="history-empty">Loading orders…</p></div></section><section id="inventoryPanel" class="inventory-panel"><div class="history-heading"><div><p class="eyebrow">CATALOG MANAGEMENT</p><h2>Inventory &amp; prices</h2></div><span id="inventoryCount">0 products</span></div><p class="inventory-help">Update the price and available stock for each catalog item.</p><div id="inventoryList" class="inventory-list"><p class="history-empty">Loading products…</p></div></section></section>
+        <header class="topbar">
+            <a class="brand" href="#top">marketly<span>.</span></a>
+            <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search products, brands, and more"></div>
+            <div class="top-actions"><label class="language-setting"><span id="languageLabel">Language</span><select id="languageSelect" aria-label="Language"><option value="en">English</option><option value="fr">Français</option><option value="ar">العربية</option><option value="es">Español</option></select></label><button class="icon-button" id="cartButton" aria-label="Open cart"><span id="cartLabel">Cart</span> <b id="cartCount">0</b></button></div>
+        </header>
+        <section class="welcome" id="top"><div><p class="eyebrow" id="weeklyEyebrow">THE WEEKLY EDIT</p><h2 id="heroTitle">Small upgrades.<br><em>Big difference.</em></h2><p id="heroDescription">Useful objects, beautiful details, and things you didn’t know you needed.</p></div><div class="hero-shape"><span id="arrivalLabel">NEW<br>ARRIVALS</span></div></section>
+        <section class="promo-media" aria-label="Promotion video and audio">
+            <div class="promo-copy">
+                <p class="eyebrow">PROMOTION</p>
+                <h3>Shop with a soundtrack.</h3>
+                <p>Curated essentials, fresh arrivals, and a slower way to discover what belongs in your everyday.</p>
+            </div>
+            <div class="promo-visuals">
+                <video controls preload="metadata" poster="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80">
+                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+                </video>
+                <audio controls preload="none">
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </section>
+        <section class="catalog-section"><div class="section-heading"><div><p class="eyebrow" id="shopEyebrow">SHOP THE EDIT</p><h2 id="popularTitle">Popular right now</h2></div><div class="filters" id="filters"><button class="active" data-category="All" data-i18n="all">All</button><button data-category="electronics" data-i18n="electronics">Electronics</button><button data-category="jewelery" data-i18n="jewelery">Jewelery</button><button data-category="men's clothing" data-i18n="mensClothing">Men's clothing</button><button data-category="women's clothing" data-i18n="womensClothing">Women's clothing</button></div></div><div id="productGrid" class="product-grid"></div></section>
+        <footer><span>marketly<span class="accent">.</span></span><span id="footerTagline">Made for curious people.</span></footer>
+    </main>
+
+    <div id="productModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-backdrop" data-close="true"></div><div class="modal-card"><button class="close-button" data-close="true" aria-label="Close product details">×</button><div id="modalVisual" class="modal-visual"></div><div class="modal-copy"><p id="modalCategory" class="eyebrow"></p><h2 id="modalTitle"></h2><div class="modal-rating">★★★★★ <span>4.9 · 128 reviews</span></div><p id="modalDescription"></p><div class="modal-buy"><strong id="modalPrice"></strong><button id="addButton" class="primary-button">Add to bag <span>→</span></button></div></div></div></div>
+    <button id="supportLauncher" class="support-launcher" type="button" aria-label="Open support chat">💬 <span>Support</span></button><section id="supportChat" class="support-chat hidden" aria-label="Marketly support"><header><div><strong>Marketly support</strong><small>Quick answers, anytime</small></div><button id="supportClose" type="button" aria-label="Close support chat">×</button></header><div id="chatMessages" class="chat-messages" aria-live="polite"><p class="chat-bubble bot">Hi! How can I help? Ask about orders, shipping, returns, or payment.</p></div><form id="chatForm"><input id="chatInput" type="text" placeholder="Type your question…" aria-label="Your support question" required><button type="submit" aria-label="Send message">➤</button></form></section>
+    <div id="cartModal" class="cart-modal hidden" role="dialog" aria-modal="true" aria-labelledby="cartTitle"><div class="modal-backdrop" data-cart-close="true"></div><aside class="cart-drawer"><div class="cart-header"><div><p class="eyebrow" id="cartEyebrow">YOUR SELECTION</p><h2 id="cartTitle">Your cart</h2></div><button class="close-button" data-cart-close="true" aria-label="Close cart">×</button></div><div id="cartItems" class="cart-items"></div><div class="cart-footer"><div><span id="subtotalLabel">Subtotal</span><strong id="cartSubtotal">$0.00</strong></div><div><span id="deliveryLabel">Delivery fee</span><strong id="cartDelivery">$0.00</strong></div><div class="cart-grand-total"><span id="totalLabel">Total</span><strong id="cartTotal">$0.00</strong></div><button id="checkoutButton" class="primary-button"><span id="checkoutLabel">Checkout</span><span>→</span></button></div></aside></div>
+    <div id="checkoutModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle"><div class="modal-backdrop" data-checkout-close="true"></div><form id="checkoutForm" class="checkout-card"><button class="close-button" data-checkout-close="true" type="button" aria-label="Close checkout">×</button><p class="eyebrow">DELIVERY DETAILS</p><h2 id="checkoutTitle">Cash on delivery</h2><p class="checkout-note">Pay the delivery worker when your order arrives.</p><div class="checkout-totals"><div><span id="checkoutDeliveryLabel">Delivery fee</span><strong id="checkoutDelivery">—</strong></div><div class="checkout-grand-total"><span id="checkoutTotalLabel">Total</span><strong id="checkoutTotal">—</strong></div></div><label>Phone number<input id="deliveryPhone" type="tel" autocomplete="tel" required minlength="5" maxlength="20" placeholder="01xxxxxxxxx"></label><label>Delivery address<textarea id="deliveryAddress" rows="3" autocomplete="street-address" required minlength="5" maxlength="300" placeholder="Street, building, area, city"></textarea></label><p id="checkoutMessage" class="form-message" role="status"></p><button class="primary-button" type="submit">Place order <span>→</span></button></form></div>
+    <div id="completedOrdersModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="completedOrdersTitle"><div class="modal-backdrop" data-completed-close="true"></div><section class="completed-orders-dialog"><div class="history-heading"><div><p class="eyebrow" id="completedOrdersEyebrow">YOUR PURCHASES</p><h2 id="completedOrdersTitle">Past orders</h2></div><button class="close-button" data-completed-close="true" type="button" aria-label="Close past orders">×</button></div><div id="completedOrdersList" class="order-history-list"></div></section></div>
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
